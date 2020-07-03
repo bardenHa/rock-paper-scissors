@@ -58,6 +58,8 @@ function game() {
         console.log(roundOutcome)
         console.log(`The score is ${playerRoundsWon}:${computerRoundsWon}`)
     }
+
+    playerRoundsWon > computerRoundsWon ? console.log("You won the game!") : console.log("You lost the game!");
 }
 
 
