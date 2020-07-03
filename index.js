@@ -30,12 +30,34 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-let playerSelection = ((prompt("Rock, Paper or Scissors?:")).toLowerCase())
+//let playerSelection = ((prompt("Rock, Paper or Scissors?:")).toLowerCase())
 
 
 function game() {
-    let computerSelection = computerPlay()
-    console.log(playRound(playerSelection, computerSelection))
+    let i;
+    let playerRoundsWon = 0;
+    let computerRoundsWon = 0;
+
+    for (i=0; i<5; i++) {
+        let playerSelection = ((prompt("Rock, Paper or Scissors?:")).toLowerCase())
+        let computerSelection = computerPlay()
+        let roundOutcome = playRound(playerSelection, computerSelection)
+        
+
+        if (roundOutcome.includes("win")) {
+            playerRoundsWon++;
+        }
+        else if (roundOutcome.includes("lose")) {
+            computerRoundsWon++;
+        }
+        else {
+            i--;
+        }
+
+        console.log("")
+        console.log(roundOutcome)
+        console.log(`The score is ${playerRoundsWon}:${computerRoundsWon}`)
+    }
 }
 
 
