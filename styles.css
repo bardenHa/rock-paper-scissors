@@ -1,0 +1,71 @@
+* {
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --text-color: #E5EBEA;
+    --button-color: #051923;
+    --text-dark: #1D1E2C;
+    --bg-blue: #0582CA;
+}
+
+body {
+    background-color: var(--text-dark);
+    margin: 2em 0;
+}
+
+.center {
+    display: block;
+    margin: 0 auto;
+    max-width: 960px;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 400px;
+    margin: 0 10px;
+    min-width: 250px;
+    padding: 0 1rem;
+    column-gap: 40px;
+    border: 1px solid var(--text-color);
+    border-radius: 1rem;
+    background-color: var(--button-color);
+    color: var(--text-color);
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.35);
+    font-size: 24px;
+    justify-content: space-evenly;
+}
+
+.button:hover {
+    color: var(--bg-blue);
+    border: 1px solid var(--bg-blue);
+    transition-duration: 0.01s;
+}
+
+.button:hover .button-img {
+    max-width: 225px;
+    transition-duration: 0.01s;
+
+}
+
+.button-txt {
+    margin: 0;
+    display: flex;
+    font-size: inherit;
+}
+
+.button-img {
+    display: block;  
+    max-width: 200px;
+    filter: invert(99%) sepia(2%) saturate(1316%) hue-rotate(163deg) brightness(101%) contrast(84%);
+}
