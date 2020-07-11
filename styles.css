@@ -26,6 +26,7 @@ body {
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-evenly;
+    min-width: 0;
 }
 
 .button {
@@ -34,7 +35,7 @@ body {
     align-items: center;
     height: 400px;
     margin: 0 10px;
-    min-width: 250px;
+    min-width: 0;
     padding: 0 1rem;
     column-gap: 40px;
     border: 1px solid var(--text-color);
@@ -65,7 +66,10 @@ body {
 }
 
 .button-img {
-    display: block;  
+    display: flex;  
+    min-width: 0;
+    width: 100%;
+    height: auto;
     max-width: 200px;
     filter: invert(99%) sepia(2%) saturate(1316%) hue-rotate(163deg) brightness(101%) contrast(84%);
 }
