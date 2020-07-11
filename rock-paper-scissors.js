@@ -30,8 +30,6 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-//let playerSelection = ((prompt("Rock, Paper or Scissors?:")).toLowerCase())
-
 
 function game() {
     let i;
