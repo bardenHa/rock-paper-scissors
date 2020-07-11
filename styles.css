@@ -33,7 +33,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 400px;
+    min-height: 300px;
     margin: 0 10px;
     min-width: 0;
     padding: 0 1rem;
@@ -72,4 +72,14 @@ body {
     height: auto;
     max-width: 200px;
     filter: invert(99%) sepia(2%) saturate(1316%) hue-rotate(163deg) brightness(101%) contrast(84%);
+}
+
+@media only screen and (max-width: 450px) {
+    .button-container {
+        flex-direction: column;
+    }
+
+    .button {
+        margin: 10px 0;
+    }
 }
