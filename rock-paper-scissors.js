@@ -31,6 +31,35 @@ function playRound(playerSelection, computerSelection) {
 }
 
 
+const rockButton = document.querySelector('#rock-button');
+const paperButton = document.querySelector('#paper-button');
+const scissorsButton = document.querySelector('#scissors-button');
+const resultsUnorderedList = document.querySelector('#results-list');
+
+rockButton.addEventListener('click', () => {
+    roundOutcome = (playRound('rock', computerPlay()));
+    console.log(roundOutcome);
+    let resultsList = document.createElement('li');
+    resultsList.textContent = roundOutcome;
+    resultsUnorderedList.appendChild(resultsList);
+})
+
+paperButton.addEventListener('click', () => {
+    roundOutcome = (playRound('paper', computerPlay()));
+    console.log(roundOutcome);
+    let resultsList = document.createElement('li');
+    resultsList.textContent = roundOutcome;
+    resultsUnorderedList.appendChild(resultsList);
+})
+
+scissorsButton.addEventListener('click', () => {
+    roundOutcome = (playRound('scissors', computerPlay()));
+    console.log(roundOutcome);
+    let resultsList = document.createElement('li');
+    resultsList.textContent = roundOutcome;
+    resultsUnorderedList.appendChild(resultsList);
+})
+
 function game() {
     let i;
     let playerRoundsWon = 0;
@@ -59,5 +88,6 @@ function game() {
 
     playerRoundsWon > computerRoundsWon ? console.log("You won the game!") : console.log("You lost the game!");
 }
+
 
 
