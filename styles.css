@@ -126,3 +126,9 @@ html {
     font-size: 16px;
     color: var(--text-color);
 }
+
+.results-container h1 {
+    font-size: 34px;
+    margin: 1rem 0 0 0;
+    color: var(--bg-blue);
+}

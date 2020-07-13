@@ -34,60 +34,56 @@ function playRound(playerSelection, computerSelection) {
 const rockButton = document.querySelector('#rock-button');
 const paperButton = document.querySelector('#paper-button');
 const scissorsButton = document.querySelector('#scissors-button');
-const resultsUnorderedList = document.querySelector('#results-list');
+const resultsUnorderedList = document.querySelector('#results-list'); 
+
+let score = document.querySelector('#score');
+let playerRoundsWon = 0;
+let computerRoundsWon = 0;
 
 rockButton.addEventListener('click', () => {
-    roundOutcome = (playRound('rock', computerPlay()));
-    console.log(roundOutcome);
-    let resultsList = document.createElement('li');
-    resultsList.textContent = roundOutcome;
-    resultsUnorderedList.appendChild(resultsList);
+    game('rock');
 })
 
 paperButton.addEventListener('click', () => {
-    roundOutcome = (playRound('paper', computerPlay()));
-    console.log(roundOutcome);
-    let resultsList = document.createElement('li');
-    resultsList.textContent = roundOutcome;
-    resultsUnorderedList.appendChild(resultsList);
+    game('paper');
 })
 
 scissorsButton.addEventListener('click', () => {
-    roundOutcome = (playRound('scissors', computerPlay()));
-    console.log(roundOutcome);
-    let resultsList = document.createElement('li');
-    resultsList.textContent = roundOutcome;
-    resultsUnorderedList.appendChild(resultsList);
+    game('scissors');
 })
 
-function game() {
-    let i;
-    let playerRoundsWon = 0;
-    let computerRoundsWon = 0;
+function game(choice) {
 
-    for (i=0; i<5; i++) {
-        let playerSelection = ((prompt("Rock, Paper or Scissors?:")).toLowerCase())
-        let computerSelection = computerPlay()
-        let roundOutcome = playRound(playerSelection, computerSelection)
-        
-
-        if (roundOutcome.includes("win")) {
-            playerRoundsWon++;
-        }
-        else if (roundOutcome.includes("lose")) {
-            computerRoundsWon++;
-        }
-        else {
-            i--;
-        }
-
-        console.log("")
-        console.log(roundOutcome)
-        console.log(`The score is ${playerRoundsWon}:${computerRoundsWon}`)
+    roundOutcome = (playRound(choice, computerPlay()));
+    console.log(roundOutcome);
+    let resultsList = document.createElement('li');
+    resultsList.classList.add('results');
+    resultsList.textContent = roundOutcome;
+    resultsUnorderedList.appendChild(resultsList);
+    
+    if (roundOutcome.includes("win")) {
+        playerRoundsWon++;
+    }
+    else if (roundOutcome.includes("lose")) {
+        computerRoundsWon++;
     }
 
-    playerRoundsWon > computerRoundsWon ? console.log("You won the game!") : console.log("You lost the game!");
-}
+    if (playerRoundsWon >= 5 || computerRoundsWon >=5) {
+        playerRoundsWon > computerRoundsWon ? score.textContent = ("You won the game!") : score.textContent = ("You lost the game!");
+        let deletedList = document.getElementsByClassName('results');
+
+        while (resultsUnorderedList.firstChild) {
+            resultsUnorderedList.removeChild(resultsUnorderedList.lastChild);
+        }
+
+        playerRoundsWon = 0;
+        computerRoundsWon = 0;
+    }
+    
+    if (playerRoundsWon > 0 || computerRoundsWon > 0) {
+        score.textContent = (`${playerRoundsWon} : ${computerRoundsWon}`);
+    }
+    }
 
 
 
